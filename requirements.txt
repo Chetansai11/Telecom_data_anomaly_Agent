@@ -8,6 +8,7 @@ seaborn
 gradio
 langchain
 langchain-core
+langgraph
 langchain-nvidia-ai-endpoints
 langchain-tavily
 tavily-python
