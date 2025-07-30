@@ -19,9 +19,9 @@ tavily_api_key="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"
 
 # llm = ChatNVIDIA(model="moonshotai/kimi-k2-instruct", streaming=True)
 
-llm = ChatNVIDIA(model="meta/llama-3.1-70b-instruct", streaming=True, api_key=nvidia_key)
+llm = ChatNVIDIA(model="meta/llama-3.1-70b-instruct", streaming=True, api_key=api_key)
 
-search_tool = TavilySearch(max_results=3, tavily_api_key=tavily_key)
+search_tool = TavilySearch(max_results=3, tavily_api_key=tavily_api_key)
 
 all_tools = [search_tool, get_site_kpi_extreme, get_peak_kpi_day_for_site, compare_kpi_impact, describe_kpi_dataset, kpi_anomalies]
 llm_with_tools = llm.bind_tools(all_tools)
