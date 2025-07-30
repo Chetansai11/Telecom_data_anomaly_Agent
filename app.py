@@ -60,4 +60,5 @@ with gr.Blocks() as demo:
     send_btn.click(respond, [user_input, chatbot], [user_input, chatbot])
     clear_btn.click(lambda: ([], reset()), None, [chatbot])
 
-demo.launch()
+if __name__ == "__main__":
+    demo.launch(inbrowser=True)
