@@ -153,17 +153,28 @@ def kpi_anomalies(
             
 
         return (
-            f"**Anomaly Summary for `{kpi_name}`**\n"
-            f"- Total number of anomalies detected: **{anomaly_count}**\n"
-            f"- Average value of `{kpi_name}` across the selected period: **{kpi_avg:.2f}**\n"
-            f"- Average value of anomalies **above** the KPI average: **{avg_above if avg_above != 'N/A' else 'None'}**\n"
-            f"- Average value of anomalies **below** the KPI average: **{avg_below if avg_below != 'N/A' else 'None'}**\n"
-            f"- This KPI belongs to the **{group.capitalize()}** group.\n"
-            f"- Related KPIs in the same group: {', '.join(Kpis)}.\n"
-            f"{related_kpi_summary}\n"
+            f"**Anomaly Summary for KPI: `{kpi_name}`**\n\n"
+            f"**Date Range Analyzed**: Based on filtered inputs or inferred from peak anomaly activity.\n\n"
+            f"**Key Statistics**:\n"
+            f"- Total anomalies detected: **{anomaly_count}**\n"
+            f"- Baseline average of `{kpi_name}`: **{kpi_avg:.2f}**\n"
+            f"- Avg anomaly value **above** baseline: **{avg_above if avg_above != 'N/A' else 'None'}**\n"
+            f"- Avg anomaly value **below** baseline: **{avg_below if avg_below != 'N/A' else 'None'}**\n\n"
+            
+            f"**KPI Group Classification**:\n"
+            f"- Group: **{group.capitalize()}**\n"
+            f"- Related KPIs: {', '.join(Kpis)}\n\n"
+            
+            f"**Peak Anomaly Info**:\n"
             f"{peak_anomaly_note}"
-            f"Use this information to answer any questions about anomaly patterns in `{kpi_name}`. "
-            f"Do not create your own possible cause."
+            
+            f"**Co-occurring Anomalies**:\n"
+            f"{related_kpi_summary}\n"
+
+            f"**LLM Usage Instructions**:\n"
+            f"- Use this summary to respond to questions about `{kpi_name}` trends, anomaly patterns, and relationships.\n"
+            f"- If a user asks about **why** anomalies occurred, do **not** generate speculative causes.\n"
+            f"- Instead, guide the user toward requesting a root cause analysis.\n"
         )
     except Exception as e:
         return f"Error analyzing KPI anomalies: {str(e)}"
