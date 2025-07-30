@@ -10,13 +10,11 @@ from langchain_core.runnables import RunnableLambda
 from tools import get_site_kpi_extreme, get_peak_kpi_day_for_site, compare_kpi_impact, describe_kpi_dataset, kpi_anomalies
 import os
 from dotenv import load_dotenv
-load_dotenv()
 
-nvidia_key = os.getenv("NVIDIA_API_KEY")
-tavily_key = os.getenv("TAVILY_API_KEY")
 
 api_key="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"
 tavily_api_key="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"
+
 # llm = ChatNVIDIA(model="nv-mistralai/mistral-nemo-12b-instruct", temperature=0.3, streaming=True)
 
 # llm = ChatNVIDIA(model="moonshotai/kimi-k2-instruct", streaming=True)
