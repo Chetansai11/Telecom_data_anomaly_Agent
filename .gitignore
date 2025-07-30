@@ -11,3 +11,4 @@ __pycache__/
 # Environment or secret config
 .env
 
+test.py
