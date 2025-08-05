@@ -56,7 +56,7 @@ agent_executor: Runnable = RunnableLambda(lambda x: app.invoke({
             "Explain clearly and professionally, and offer insights and summarize findings with detailed explanations."
             "Always explain your reasoning clearly.\n"
             "If uncertain, say 'I’m not sure' or suggest further data analysis.\n"
-            "Avoid making speculative conclusions and maintain a professional tone."
+            "Avoid making speculative conclusions."
         ))
     ] + messages_from_dict(x.get("chat_history", [])) + [HumanMessage(content=x["input"])]
 }))

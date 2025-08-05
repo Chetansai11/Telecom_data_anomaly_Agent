@@ -5,7 +5,7 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.messages import messages_to_dict
 import json
 
-API_URL = "http://localhost:8000/invoke"
+API_URL = "http://localhost:8000//mcp/invoke"
 
 chat_history = []
 
